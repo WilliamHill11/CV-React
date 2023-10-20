@@ -5,6 +5,8 @@ import PersonalForm from './components/PersonalForm/PersonalForm';
 import WorkExperienceForm from './components/WorkExperienceForm/WorkExperienceForm';
 
 function App() {
+  const formSubmit = () => {};
+
   return (
     <div>
       <header className="title-section">
@@ -16,7 +18,7 @@ function App() {
           <EducationForm />
           <WorkExperienceForm />
         </div>
-        <button>Submit</button>
+        <button onClick={formSubmit}>Submit</button>
         <div className="form-result">
           <h1>Your Results</h1>
         </div>
