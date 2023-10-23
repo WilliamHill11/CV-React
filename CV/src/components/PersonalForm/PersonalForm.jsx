@@ -1,19 +1,9 @@
-import { useState } from 'react';
-
-const PersonalForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
-
-  const handlePersonalForm = (event) => {
-    event.preventDefault();
-  };
-
+const PersonalForm = ({ setName, setEmail, setNumber }) => {
   return (
     <div>
       <h2>General Info</h2>
 
-      <form onSubmit={handlePersonalForm}>
+      <form>
         <label htmlFor="name" id="name">
           Name:
         </label>
@@ -28,11 +18,7 @@ const PersonalForm = () => {
           Phone Number:
         </label>
         <input type="number" onChange={(e) => setNumber(e.target.value)} />
-        <button>submit</button>
       </form>
-      <li>{name}</li>
-      <li>{email}</li>
-      <li>{number}</li>
     </div>
   );
 };

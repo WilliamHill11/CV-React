@@ -17,7 +17,7 @@ body {
 
 .form-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -43,7 +43,7 @@ form {
   display: grid;
   grid-template-columns: 0.5fr 2fr;
   margin-top: 2em;
-  margin-bottom: 10em;
+  margin-bottom: 5em;
   gap: 15px;
 }
 
@@ -53,4 +53,43 @@ input {
 
 textarea {
   max-width: 80%;
+}
+
+li {
+  list-style-type: none;
+  word-wrap: break-word;
+}
+
+.cv-title {
+  display: flex;
+  justify-content: center;
+  text-decoration-line: underline;
+  padding-bottom: 2em;
+}
+
+.education,
+.work-experience {
+  padding-top: 5em;
+}
+
+.cv-sub-title {
+  background: darkblue;
+  color: white;
+  padding-left: 5px;
+  border: 2px solid black;
+}
+
+.hide {
+  display: none;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+.btn {
+  padding: 0.5em 3em;
+  margin: 2em;
 }
