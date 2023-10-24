@@ -49,15 +49,18 @@ form {
 
 input {
   margin-right: 10em;
+  cursor: pointer;
 }
 
 textarea {
   max-width: 80%;
+  resize: none;
 }
 
 li {
   list-style-type: none;
   word-wrap: break-word;
+  line-height: 2.5em;
 }
 
 .cv-title {

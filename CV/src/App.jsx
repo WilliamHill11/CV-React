@@ -6,20 +6,46 @@ import WorkExperienceForm from './components/WorkExperienceForm/WorkExperienceFo
 import Results from './components/Results';
 
 function App() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
-  const [school, setSchool] = useState('');
-  const [program, setProgram] = useState('');
-  const [finishDate, setFinishDate] = useState('');
-  const [company, setCompany] = useState('');
-  const [position, setPosition] = useState('');
-  const [start, setStart] = useState('');
-  const [finish, setFinish] = useState('');
-  const [description, setDescription] = useState('');
+  const [personal, setPersonal] = useState({
+    name: '',
+    email: '',
+    number: '',
+  });
+
+  const [education, setEducation] = useState({
+    school: '',
+    program: '',
+    finishDate: '',
+  });
+
+  const [workExperience, setWorkExperience] = useState({
+    company: '',
+    position: '',
+    startDate: '',
+    finishDate: '',
+    description: '',
+    form: '',
+  });
+
   const [form, setForm] = useState('form-page');
+  const [formFields, setFormFields] = useState([{ id: 1, value: '' }]);
+
+  const addFormField = () => {
+    setFormFields([...formFields, { id: formFields.length + 1, value: '' }]);
+  };
+
+  const handleInputChange = (e, id) => {
+    const updatedFields = formFields.map((field) => {
+      if (field.id === id) {
+        return { ...field, value: e.target.value };
+      }
+      return field;
+    });
+    setFormFields(updatedFields);
+  };
 
   const hideForm = () => {
+    console.log(setPersonal(personal));
     setForm('hide');
   };
 
@@ -30,22 +56,22 @@ function App() {
       </header>
       <main className="form-wrapper">
         <div className={form}>
-          <PersonalForm
-            setName={setName}
-            setEmail={setEmail}
-            setNumber={setNumber}
-          />
+          <PersonalForm setPersonal={setPersonal} personal={personal} />
           <EducationForm
-            setSchool={setSchool}
-            setProgram={setProgram}
-            setFinishDate={setFinishDate}
+            setEducation={setEducation}
+            education={education}
+            handleInputChange={handleInputChange}
+            addFormField={addFormField}
+            formFields={formFields}
+            setFormFields={setFormFields}
           />
+          {/* {addDegree > 1 ? <EducationForm /> : null}
+          <button onClick={() => setAddDegree(addDegree + 1)}>
+            +Add Degree
+          </button> */}
           <WorkExperienceForm
-            setCompany={setCompany}
-            setPosition={setPosition}
-            setStart={setStart}
-            setFinish={setFinish}
-            setDescription={setDescription}
+            setWorkExperience={setWorkExperience}
+            workExperience={workExperience}
           />
           <div className="center-btn">
             <button className="btn" onClick={hideForm}>
@@ -55,17 +81,9 @@ function App() {
         </div>
         <div className="form-result">
           <Results
-            name={name}
-            email={email}
-            number={number}
-            school={school}
-            program={program}
-            finishDate={finishDate}
-            company={company}
-            position={position}
-            start={start}
-            finish={finish}
-            description={description}
+            personal={personal}
+            education={education}
+            workExperience={workExperience}
             setForm={setForm}
           />
         </div>

@@ -1,24 +1,24 @@
-function EducationForm({ setSchool, setProgram, setFinishDate }) {
+function EducationForm({
+  // setEducation,
+  // education,
+  handleInputChange,
+  addFormField,
+  formFields,
+  setFormFields,
+}) {
   return (
-    <div className="personal-form">
-      <h2>Education</h2>
-
-      <form>
-        <label htmlFor="school" id="school">
-          School Name:
-        </label>
-        <input type="text" onChange={(e) => setSchool(e.target.value)} />
-
-        <label htmlFor="program" id="program">
-          Program Name:
-        </label>
-        <input type="text" onChange={(e) => setProgram(e.target.value)} />
-
-        <label htmlFor="date" id="date">
-          Finish Date:
-        </label>
-        <input type="date" onChange={(e) => setFinishDate(e.target.value)} />
-      </form>
+    <div>
+      <h2>Dynamic Form Fields</h2>
+      {formFields.map((field) => (
+        <div key={field.id}>
+          <input
+            type="text"
+            value={field.value}
+            onChange={(e) => handleInputChange(e, field.id)}
+          />
+        </div>
+      )}
+      <button onClick={addFormField}>Add Field</button>
     </div>
   );
 }
