@@ -1,3 +1,5 @@
+import Form from './Form';
+
 const Results = ({ personal, education, workExperience, setForm }) => {
   const editForm = () => {
     setForm('form-page');

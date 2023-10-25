@@ -4,6 +4,7 @@ import EducationForm from './components/EducationForm/EducationForm';
 import PersonalForm from './components/PersonalForm/PersonalForm';
 import WorkExperienceForm from './components/WorkExperienceForm/WorkExperienceForm';
 import Results from './components/Results';
+import Form from './components/Form';
 
 function App() {
   const [personal, setPersonal] = useState({
@@ -28,21 +29,6 @@ function App() {
   });
 
   const [form, setForm] = useState('form-page');
-  const [formFields, setFormFields] = useState([{ id: 1, value: '' }]);
-
-  const addFormField = () => {
-    setFormFields([...formFields, { id: formFields.length + 1, value: '' }]);
-  };
-
-  const handleInputChange = (e, id) => {
-    const updatedFields = formFields.map((field) => {
-      if (field.id === id) {
-        return { ...field, value: e.target.value };
-      }
-      return field;
-    });
-    setFormFields(updatedFields);
-  };
 
   const hideForm = () => {
     console.log(setPersonal(personal));
@@ -57,22 +43,12 @@ function App() {
       <main className="form-wrapper">
         <div className={form}>
           <PersonalForm setPersonal={setPersonal} personal={personal} />
-          <EducationForm
-            setEducation={setEducation}
-            education={education}
-            handleInputChange={handleInputChange}
-            addFormField={addFormField}
-            formFields={formFields}
-            setFormFields={setFormFields}
-          />
-          {/* {addDegree > 1 ? <EducationForm /> : null}
-          <button onClick={() => setAddDegree(addDegree + 1)}>
-            +Add Degree
-          </button> */}
+          <EducationForm setEducation={setEducation} education={education} d />
           <WorkExperienceForm
             setWorkExperience={setWorkExperience}
             workExperience={workExperience}
           />
+          <Form />
           <div className="center-btn">
             <button className="btn" onClick={hideForm}>
               Submit
