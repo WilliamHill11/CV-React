@@ -1,76 +1,82 @@
-function WorkExperienceForm({ setWorkExperience, workExperience }) {
+const WorkExperienceForm = ({ workExperience, setWorkExperience }) => {
+  const handleFormChange = (event, index) => {
+    let data = [...workExperience];
+    data[index][event.target.name] = event.target.value;
+    setWorkExperience(data);
+  };
+
+  const addFields = () => {
+    let object = {
+      company: '',
+      startingDate: '',
+      finishDate: '',
+      jobDescription: '',
+    };
+
+    setWorkExperience([...workExperience, object]);
+  };
+
   return (
     <div>
       <h2>Work Experience</h2>
-
       <form>
-        <div className="form-style">
-          <label htmlFor="company" id="company">
-            Company:
-          </label>
-          <input
-            type="text"
-            onChange={(e) =>
-              setWorkExperience({ ...workExperience, company: e.target.value })
-            }
-          />
-
-          <label htmlFor="position" id="position">
-            Position:
-          </label>
-          <input
-            type="text"
-            onChange={(e) =>
-              setWorkExperience({ ...workExperience, position: e.target.value })
-            }
-          />
-
-          <label htmlFor="start-date" id="start-date">
-            Starting Date:
-          </label>
-          <input
-            type="date"
-            onChange={(e) =>
-              setWorkExperience({
-                ...workExperience,
-                startDate: e.target.value,
-              })
-            }
-          />
-
-          <label htmlFor="finish-date" id="finish-date">
-            Finish Date:
-          </label>
-          <input
-            type="date"
-            onChange={(e) =>
-              setWorkExperience({
-                ...workExperience,
-                finishDate: e.target.value,
-              })
-            }
-          />
-
-          <label htmlFor="job-description" id="job-description">
-            Job Description:
-          </label>
-          <textarea
-            name="job-description"
-            id="job-description"
-            cols="30"
-            rows="10"
-            maxLength="750"
-            onChange={(e) =>
-              setWorkExperience({
-                ...workExperience,
-                description: e.target.value,
-              })
-            }
-          ></textarea>
-        </div>
+        {workExperience.map((form, index) => {
+          return (
+            <div key={index} className="form-style">
+              <label htmlFor="company" id="company">
+                Company:
+              </label>
+              <input
+                name="company"
+                onChange={(event) => handleFormChange(event, index)}
+                value={form.company}
+              />
+              <label htmlFor="position" id="position">
+                Position:
+              </label>
+              <input
+                name="position"
+                onChange={(event) => handleFormChange(event, index)}
+                value={form.position}
+              />
+              <label htmlFor="startDate" id="startDate">
+                Starting Date:
+              </label>
+              <input
+                type="date"
+                name="startDate"
+                onChange={(event) => handleFormChange(event, index)}
+                value={form.startDate}
+              />
+              <label htmlFor="finishDate" id="finishDate">
+                Finish Date:
+              </label>
+              <input
+                type="date"
+                name="finishDate"
+                onChange={(event) => handleFormChange(event, index)}
+                value={form.finishDate}
+              />
+              <label htmlFor="jobDescription" id="jobDescription">
+                Job Description:
+              </label>
+              <textarea
+                name="jobDescription"
+                id="jobDescription"
+                cols="30"
+                rows="10"
+                onChange={(event) => handleFormChange(event, index)}
+                value={form.jobDescription}
+              ></textarea>
+            </div>
+          );
+        })}
       </form>
+      <button onClick={addFields} className="addMoreBtn">
+        + Add Experience
+      </button>
     </div>
   );
-}
+};
 
 export default WorkExperienceForm;

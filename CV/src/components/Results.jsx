@@ -1,13 +1,6 @@
 import { useState } from 'react';
-import EducationForm from './EducationForm/EducationForm';
 
-const Results = ({
-  personal,
-  education,
-  workExperience,
-  setForm,
-  setEducation,
-}) => {
+const Results = ({ personal, education, workExperience, setForm }) => {
   const editForm = () => {
     setForm('form-page');
   };
@@ -32,13 +25,13 @@ const Results = ({
         {education.map((form, index) => {
           return (
             <div key={index}>
-              <li className="school">
+              <li className="extra-style">
                 <b>School Name: </b> {form.school}
               </li>
-              <li className="education-section">
+              <li className="extra-section">
                 <b>Program Name: </b> {form.program}
               </li>
-              <li className="education-section">
+              <li className="extra-section">
                 <b>Finish Date: </b> {form.finishDate}
               </li>
               <br />
@@ -48,21 +41,28 @@ const Results = ({
       </div>
       <div className="work-experience">
         <h2 className="cv-sub-title">Work</h2>
-        <li>
-          <b>Company: </b> {workExperience.company}
-        </li>
-        <li>
-          <b>Position: </b> {workExperience.position}
-        </li>
-        <li>
-          <b>Starting Date: </b> {workExperience.startDate}
-        </li>
-        <li>
-          <b>Finish Date: </b> {workExperience.finishDate}
-        </li>
-        <li>
-          <b>Job Description: </b> {workExperience.description}
-        </li>
+        {workExperience.map((form, index) => {
+          return (
+            <div key={index}>
+              <li className="extra-style">
+                <b>Company: </b> {form.company}
+              </li>
+              <li className="extra-section">
+                <b>Position: </b> {form.position}
+              </li>
+              <li className="extra-section">
+                <b>Starting Date: </b> {form.startDate}
+              </li>
+              <li className="extra-section">
+                <b>Finish Date: </b> {form.finishDate}
+              </li>
+              <li className="extra-section">
+                <b>Job Description: </b> {form.jobDescription}
+              </li>
+              <br />
+            </div>
+          );
+        })}
       </div>
       <div className="center-btn">
         <button className="btn" onClick={editForm}>

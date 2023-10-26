@@ -16,14 +16,25 @@ function App() {
     { school: '', program: '', finishDate: '' },
   ]);
 
-  const [workExperience, setWorkExperience] = useState({
-    company: '',
-    position: '',
-    startDate: '',
-    finishDate: '',
-    description: '',
-    form: '',
-  });
+  const [workExperience, setWorkExperience] = useState([
+    {
+      company: '',
+      position: '',
+      startDate: '',
+      finishDate: '',
+      description: '',
+      form: '',
+    },
+  ]);
+
+  // const [workExperience, setWorkExperience] = useState({
+  //   company: '',
+  //   position: '',
+  //   startDate: '',
+  //   finishDate: '',
+  //   description: '',
+  //   form: '',
+  // });
 
   const [form, setForm] = useState('form-page');
 

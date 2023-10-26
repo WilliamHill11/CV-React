@@ -97,10 +97,19 @@ li {
   margin: 2em;
 }
 
-.school {
+.addMoreBtn {
+  background: none;
+  color: darkblue;
+}
+
+.addMoreBtn:hover {
+  background: lightblue;
+}
+
+.extra-style {
   list-style-type: disc;
 }
 
-.education-section {
+.extra-section {
   padding-left: 1.4em;
 }

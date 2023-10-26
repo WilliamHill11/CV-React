@@ -42,6 +42,7 @@ const EducationForm = ({ education, setEducation }) => {
                 Finish Date:
               </label>
               <input
+                type="date"
                 name="finishDate"
                 onChange={(event) => handleFormChange(event, index)}
                 value={form.finishDate}
@@ -50,7 +51,9 @@ const EducationForm = ({ education, setEducation }) => {
           );
         })}
       </form>
-      <button onClick={addFields}>Add More</button>
+      <button onClick={addFields} className="addMoreBtn">
+        + Add Education
+      </button>
     </div>
   );
 };
