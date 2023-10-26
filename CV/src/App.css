@@ -39,7 +39,7 @@ label {
   font-weight: bold;
 }
 
-form {
+.form-style {
   display: grid;
   grid-template-columns: 0.5fr 2fr;
   margin-top: 2em;
@@ -95,4 +95,12 @@ li {
 .btn {
   padding: 0.5em 3em;
   margin: 2em;
+}
+
+.school {
+  list-style-type: disc;
+}
+
+.education-section {
+  padding-left: 1.4em;
 }

@@ -1,6 +1,13 @@
-import Form from './Form';
+import { useState } from 'react';
+import EducationForm from './EducationForm/EducationForm';
 
-const Results = ({ personal, education, workExperience, setForm }) => {
+const Results = ({
+  personal,
+  education,
+  workExperience,
+  setForm,
+  setEducation,
+}) => {
   const editForm = () => {
     setForm('form-page');
   };
@@ -22,15 +29,22 @@ const Results = ({ personal, education, workExperience, setForm }) => {
       </div>
       <div className="education">
         <h2 className="cv-sub-title">Education</h2>
-        <li>
-          <b>School Name: </b> {education.school}
-        </li>
-        <li>
-          <b>Program Name: </b> {education.program}
-        </li>
-        <li>
-          <b>Finish Date: </b> {education.finishDate}
-        </li>
+        {education.map((form, index) => {
+          return (
+            <div key={index}>
+              <li className="school">
+                <b>School Name: </b> {form.school}
+              </li>
+              <li className="education-section">
+                <b>Program Name: </b> {form.program}
+              </li>
+              <li className="education-section">
+                <b>Finish Date: </b> {form.finishDate}
+              </li>
+              <br />
+            </div>
+          );
+        })}
       </div>
       <div className="work-experience">
         <h2 className="cv-sub-title">Work</h2>

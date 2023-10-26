@@ -4,7 +4,6 @@ import EducationForm from './components/EducationForm/EducationForm';
 import PersonalForm from './components/PersonalForm/PersonalForm';
 import WorkExperienceForm from './components/WorkExperienceForm/WorkExperienceForm';
 import Results from './components/Results';
-import Form from './components/Form';
 
 function App() {
   const [personal, setPersonal] = useState({
@@ -13,11 +12,9 @@ function App() {
     number: '',
   });
 
-  const [education, setEducation] = useState({
-    school: '',
-    program: '',
-    finishDate: '',
-  });
+  const [education, setEducation] = useState([
+    { school: '', program: '', finishDate: '' },
+  ]);
 
   const [workExperience, setWorkExperience] = useState({
     company: '',
@@ -43,12 +40,11 @@ function App() {
       <main className="form-wrapper">
         <div className={form}>
           <PersonalForm setPersonal={setPersonal} personal={personal} />
-          <EducationForm setEducation={setEducation} education={education} d />
+          <EducationForm setEducation={setEducation} education={education} />
           <WorkExperienceForm
             setWorkExperience={setWorkExperience}
             workExperience={workExperience}
           />
-          <Form />
           <div className="center-btn">
             <button className="btn" onClick={hideForm}>
               Submit
