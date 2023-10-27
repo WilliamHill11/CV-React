@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import EducationForm from './components/EducationForm/EducationForm';
-import PersonalForm from './components/PersonalForm/PersonalForm';
-import WorkExperienceForm from './components/WorkExperienceForm/WorkExperienceForm';
+import EducationForm from './components/EducationForm';
+import PersonalForm from './components/PersonalForm';
+import WorkExperienceForm from './components/WorkExperienceForm';
 import Results from './components/Results';
 
 function App() {
@@ -27,19 +27,9 @@ function App() {
     },
   ]);
 
-  // const [workExperience, setWorkExperience] = useState({
-  //   company: '',
-  //   position: '',
-  //   startDate: '',
-  //   finishDate: '',
-  //   description: '',
-  //   form: '',
-  // });
-
   const [form, setForm] = useState('form-page');
 
   const hideForm = () => {
-    console.log(setPersonal(personal));
     setForm('hide');
   };
 
